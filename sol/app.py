@@ -8,7 +8,7 @@ app = web.application(urls, globals())
 class hello:
     def GET(self, name):
         if not name:
-            name = 'World'
+            name = 'Docker'
         return 'Hello, ' + name + '!'
 
 if __name__ == "__main__":
