@@ -1,35 +1,22 @@
 # Descargar la imagen de ubuntu
 FROM ubuntu:22.04
 
-# Actualizar la lista de actualizaciones 
-RUN apt-get update 
+# Actualizar la lista de actualizaciones e instalar herramientas
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y python3 python3-pip --fix-missing
 
-# Actualizar la imagen 
-RUN apt-get upgrade -y
+# Copiar la carpeta webapp
+COPY ./webapp /home/webapp
 
-# Instalar las herramientas
-RUN apt-get install python3 -y
-
-#Crear contenedor
-#$ docker build -t oscar:v1 .
-#Borrar contenedor
-#$ docker rmi (id)
-#Copiar la carpeta webapp
-#Correr la app
-#$ docker run -p 8080:8080 oscar:v5
-COPY ./webapp  /home/webapp
-
-#Establecer directorio de trabajo
+# Establecer directorio de trabajo
 WORKDIR /home/webapp
 
-#Instalar pip
-RUN apt-get install python3-pip -y
+# Instalar las librerías
+RUN pip3 install -r requirements.txt
 
-#Instalar las librerias
-RUN pip install -r requirements.txt 
-
-#Abrir el puerto 8080
+# Abrir el puerto 8080
 EXPOSE 8080
 
-#Ejecutar la app
-CMD [ "python3", "app.py" ]
+# Ejecutar la app
+CMD ["python3", "app.py"]
