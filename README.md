@@ -10,22 +10,45 @@ $  pip3 freeze > requirements.txt
 ````bash
 $ docker ps -a
 ````
+## 6. Ver los contenedores ejecutandose
+````bash
+$ docker ps 
+````
+## 7. Iniciar un contenedor detenido
+````bash
+$ docker start (nombre del contenedor)
+````
+## 8. Iniciar un contenedor en modo interactivo
+````bash
+$ docker start -i (nombre del contenedor)
+````
+## 9. Detener un contenedor
+````bash
+$ docker kill (nombre del contenedor)
+````
+## 10. Crear una nueva etiqueta para una imagen de Docker
+````bash
+$ docker tag oscar:v5 oscarorta/prueba:lasted
 
-#Ver los contenedores ejecutandose en 2 plano
-#$ docker ps
-#Este comando se utiliza para iniciar un contenedor que ya ha sido creado y detenido previamente.
-#$ docker start (nombre del contnedor)
-#Dinamico
-#$ docker start -1 (nombre del contnedor)
-#para eliminar los procesos
-#$ docker kill (nombre del contnedor)
-#Este comando se utiliza para crear una nueva etiqueta (tag) para una imagen de Docker existente.
-#docker tag oscar:v5 oscarorta/prueba:lasted
-#Este comando se utiliza para subir (push) una imagen de Docker a un registro de Docker, como Docker Hub.
-#docker push oscarorta/prueba:lasted
-#Este comando se utiliza para crear y ejecutar un nuevo contenedor a partir de una imagen específica.
-#$ docker run -p 8080:8080 oscar:v5
-#Crear contenedor
-#$ docker build -t oscar:v1 .
-#Borrar contenedor
-#$ docker rmi (id)
+````
+## 11. Subir una imagen de Docker a un registro
+````bash
+$ docker push oscarorta/prueba:lasted
+````
+## 12. Crear y ejecutar un nuevo contenedor a partir de una imagen
+````bash
+$ docker run -p 8080:8080 oscar:v5
+````
+
+## 12. Crear y ejecutar un nuevo contenedor a partir de una imagen
+````bash
+$ docker run -p 8080:8080 oscar:v5
+````
+## 13. Crear una imagen de Docker a partir de un Dockerfile
+````bash
+$ docker build -t oscar:v1 .
+````
+## 14. Eliminar una imagen de Docker
+````bash
+$ docker rmi (id)
+````
