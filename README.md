@@ -52,3 +52,8 @@ $ docker build -t oscar:v1 .
 ````bash
 $ docker rmi (id)
 ````
+## 15. Ultima práctica cambios en tiempo real
+````bash
+$ docker run -it -p 8080:8080 -v /workspace/Docker/Docker01/webapp/templates:/home/webapp/templates volumenes:v1
+http://0.0.0.0:8080/
+````
